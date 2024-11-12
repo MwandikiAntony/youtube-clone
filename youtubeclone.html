@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <style>
+        body{
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #top-nav{
+            width: 100%;
+            height: 60px;
+            display: flex;
+            top: 0;
+           left: 0;
+           background-color: white;
+            right: 0;
+            position: fixed;
+            z-index: 10;
+            align-items: center; 
+            justify-content: space-between;
+        }
+        .logo-div{
+            display: flex;
+        }
+        .ham{
+            font-size:25px;
+            padding: 8.5px;
+        }
+        .logo{
+            color: red;
+            font-size: 25px;
+            padding: 13px;
+        }
+        .header{
+            font-size: larger;
+        }
+        #input{
+            width: 100%;
+            height: 100%;
+            border: none;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 15px;
+            margin-left: 5px;
+            outline: none;
+        }
+        #Search-div{
+            width: 700px;
+            height: 40px;
+            border:1px solid #ccc;
+            background-color: white;
+            margin-left: auto;
+            display: flex;
+            border-radius: 20px;
+         }
+        #Search-btn{
+            width: 70px;
+          height: 100%;
+          border:0.5px solid #ccc;
+          background-color: #eeeded;
+          border-top-right-radius:20px;
+          border-bottom-right-radius: 20px;   
+        }
+        #m-s-btn{
+            display: none;
+        }
+    #user-img{
+            width: 30px;
+            height: 30px;
+            margin-left: 5px;
+            margin-right: 5px;
+            border-radius: 50%;
+        }
+        .icons{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: transparent;
+            border: none;
+            font-size: large;
+            margin-left: 10px;
+            transition: 0.5s;
+        }
+        .icons:hover{
+             background-color: #ccc;
+        }
+        #icon-div{
+            display: flex;
+            margin-left: auto;
+        }
+        #mic{
+            width: 40px;
+            height: 40px;
+            background-color: #e9e7e7;
+            border-radius: 50%;
+            margin-right: 100px;
+        }
+        .side-nav{
+            position: fixed;
+            width: 0;
+            height: 100%;
+            left: 0;
+            z-index: 1;
+            top: 15px;
+            transition: 0.3s;
+            overflow-y:auto;
+            background-color: white;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        ol{
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          font-size:large;
+        }
+        ol li{
+            margin-top: 20px;
+            margin-left:10px;
+        }
+        ol li:nth-child(1){
+            margin-top: 0;
+        }
+        ol hr{
+            margin-left: 10px;
+        }
+        ol h1{
+            margin-left: 10px;
+            font-size: large;
+        }
+        .tog{
+            width: 210px;
+        }
+        .mobile-tog{
+       background: rgba(0,0,0,0.4);
+        }
+        .desktop-tog{
+            margin-left: 210px;
+        }
+    
+.side-nav .ham {
+    padding: 11px;
+  }
+
+#category-list{
+display: flex;
+gap: 0.75rem;
+position: fixed;
+top:60px;
+margin: 0;
+  padding:0;
+overflow-x:auto;
+scrollbar-width: none;
+padding-left: 10px;
+z-index: 10;
+background-color: white;
+}
+.category-button{
+    padding: 0.4rem 0.75rem;
+    font-weight:500;
+    font-size: 0.94rem;
+    border: none;
+    background-color: #ccc;
+    border-radius: 0.5rem;
+    white-space: nowrap;
+    margin-bottom: 12px;
+}
+.active{
+    background-color: black;
+    color: white;
+}
+#videos{
+    display:flex;
+    flex-wrap: wrap;
+    gap:5px;
+    justify-content: center;
+    align-items: center;
+}
+.video-con{
+    width:380px;
+    height:auto;
+    position: relative; 
+    margin-top: 5px;
+}
+.video-main{
+    display: flex;    
+}
+.video-img{
+    width: 99%;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+        #main{
+            margin-top: 110px;
+            margin-left: 5px;
+        }
+        .video-user-img{
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            margin-top: 15px;
+            margin-left: 5px;
+        }
+        .video-text{
+        font-size: larger;
+        padding-left: 10px;
+        }
+        .video-sub-text{
+            padding-left: 50px;
+            margin-top: 0;
+            color: #291f1f;
+            font-size:15px;
+        }
+        .small{
+            font-size:6px;
+            color: #646363;
+        }
+        .badge-live{
+            width: 40px;
+            height: auto;
+            color: white;
+            position: absolute;
+            background-color: red;
+            border-radius: 5px;
+            right: 8px;
+            top: 178px;
+            padding-left: 6px;
+            z-index: 1;
+            display: flex;
+        }
+        .badge-off{
+            width: 40px;
+            height: auto;
+            color: white;
+            position: absolute;
+            background-color:black;
+            border-radius: 5px;
+            right: 8px;
+            top: 178px;
+            padding-left: 6px;
+            z-index: 1;
+            display: flex;
+        }
+      
+        @media (max-width:678px) {
+            #mic{
+                display: none;
+            }
+            #Search-div{
+                display: none;
+            }
+            #m-s-btn{
+                display: block;
+            }
+        }
+        ::placeholder{
+            font-size: 15px;
+        }
+        </style>
+</head>
+<body>
+    <header>
+    <nav id ="top-nav">
+        <span onclick ="tog()"class="uil uil-bars ham"></span>
+        <div class ="logo-div">
+            <i class="fab fa-youtube logo"></i>
+        <h1 class ="header">Vtube</h1>
+    </div>
+    <div id ="Search-div">
+    <input type ="text"id ="input"placeholder ="Search">
+    <button id ="Search-btn"><i class="fas fa-magnifying-glass"></i></button>
+</div>
+<button class ="icons"id ="mic"><i class="fas fa-microphone"></i></button>
+<div id ="icon-div">
+    <button class ="icons"id ="m-s-btn"><i class="fas fa-magnifying-glass"></i></button>
+    <button class ="icons"><i class="fas fa-video"></i></button>
+<button class ="icons"><i class="fas fa-bell"></i></button>
+</div>
+<img src ="https://i.ibb.co/tLQzVSx/IMG-20241012-135814.jpg"id ="user-img">
+    </nav>
+    
+    <nav class ="side-nav">
+        <div class ="logo-div">
+            <span onclick ="tog()"class="uil uil-bars ham"></span>
+            <i class="fab fa-youtube logo"></i>
+        <h1 class ="header">Vtube</h1>
+    </div>
+    <br>
+    <br>
+    <ol class ="links">
+      <li><i class="fas fa-house"></i> Home</li>
+      <li><i class="fas fa-video"></i> Shorts</li>
+      <li><i class="fas fa-tv"></i> Subscriptions</li>
+      <hr>
+      <h1>You</h1>
+      <li><i class="fas fa-user"></i> Your channel</li>
+      <li><i class="fas fa-clock-rotate-left"></i> History</li>
+      <li><i class="fa-regular fa-clock"></i> Watch later</li>
+      <li><i class="fas fa-thumbs-up"></i> Liked videos</li>
+      <li><i class="fas fa-download"></i> Downloads</li>
+      <li><i class="fas fa-podcast"></i> Podcasts</li>
+      <hr>
+      <h1>Explore</h1>
+      <li><i class="fas fa-fire"></i> Trending</li>
+      <li><i class="fas fa-music"></i> Music</li>
+      <li><i class="fas fa-basketball"></i> Gaming</li>
+      <li><i class="fas fa-trophy"></i> Sports</li>
+    </ol>
+    </nav>
+    <div id ="category-list">
+        <button class="category-button active">All</button>
+        <button class="category-button">Website</button>
+        <button class="category-button">Music</button>
+        <button class="category-button">Gaming</button>
+        <button class="category-button">Node.js</button>
+        <button class="category-button">JavaScript</button>
+        <button class="category-button">React.js</button>
+        <button class="category-button">TypeScript</button>
+        <button class="category-button">Coding</button>
+        <button class="category-button">Next.js</button>
+        <button class="category-button">Data analysis</button>
+        <button class="category-button">Web design</button>
+        <button class="category-button">HTML</button>
+        <button class="category-button">Tailwind</button>
+        <button class="category-button">CSS</button>
+        <button class="category-button">Express.js</button>
+      </div>
+ 
+</header>
+
+<section id ="main">
+ <div id ="videos">
+   <div class ="video-con">
+            <img src ="https://i.ibb.co/qDBsxbS/IMG-20241013-173539.jpg" class ="video-img">
+            <div class ="badge-live">LIVE</div> 
+            <div class ="video-main">
+             <img src ="https://i.ibb.co/cwV14tK/IMG-20241013-WA0018.jpg"class="video-user-img">
+            <h1 class ="video-text">Live on mars.High quality 4k video.</h1>
+         </div>
+         <p class ="video-sub-text">Space creatures</p> 
+         <span class ="video-sub-text">100cr viewing <i class="fas fa-circle small"></i> streamed 5 min ago</span>  
+         </div>
+      
+        <div class ="video-con">
+           <img src ="https://i.ibb.co/4K9dqWp/IMG-20241013-173749.jpg" class ="video-img">
+           <div class ="badge-live">LIVE</div>  
+           <div class ="video-main">
+            <img src ="https://i.ibb.co/cwV14tK/IMG-20241013-WA0018.jpg"class="video-user-img">
+           <h1 class ="video-text">Live on jupiter.High quality 4k video.exploring mountains</h1>
+        </div>
+        <p class ="video-sub-text">Space creatures</p> 
+        <span class ="video-sub-text">57k viewing <i class="fas fa-circle small"></i> streamed 5 min ago</span>  
+        </div>
+        <br>
+       <div class ="video-con">
+            <img src ="https://i.ibb.co/b5r9DFP/IMG-20241013-173310.jpg" class ="video-img">
+            <div class ="badge-live">LIVE</div> 
+            <div class ="video-main">
+             <img src ="https://i.ibb.co/NVffPkf/IMG-20241013-WA0014.jpg"class="video-user-img">
+            <h1 class ="video-text">A day in shade:shooting a tree in a forest.</h1>
+         </div>
+         <p class ="video-sub-text">Space creatures</p> 
+         <span class ="video-sub-text">11k viewing <i class="fas fa-circle small"></i> streamed 5 min ago</span>  
+         </div>
+         <div class ="video-con">
+            <img src ="https://i.ibb.co/5sfVRzD/IMG-20241013-173138.jpg" class ="video-img">
+            <div class ="badge-off">05:00</div> 
+            <div class ="video-main">
+             <img src ="https://i.ibb.co/NVffPkf/IMG-20241013-WA0014.jpg"class="video-user-img">
+            <h1 class ="video-text">Exploring flowers on mountains.</h1>
+         </div>
+         <p class ="video-sub-text">Nature</p> 
+         <span class ="video-sub-text">88k views <i class="fas fa-circle small"></i> streamed 5 min ago</span>  
+        </div>
+        <div class ="video-con">
+            <img src ="https://i.ibb.co/xL30vMQ/IMG-20241013-173033.jpg" class ="video-img">
+            <div class ="badge-off">15:00</div> 
+            <div class ="video-main">
+             <img src ="https://i.ibb.co/NVffPkf/IMG-20241013-WA0014.jpg"class="video-user-img">
+            <h1 class ="video-text">Beautiful video of sunset.</h1>
+         </div>
+         <p class ="video-sub-text">Nature</p> 
+         <span class ="video-sub-text">88 lakhs views <i class="fas fa-circle small"></i> streamed 5 min ago</span>  
+        </div>
+        <div class ="video-con">
+            <img src ="https://i.ibb.co/9ymzX77/IMG-20241013-173045.jpg" class ="video-img">
+            <div class ="badge-off">10:00</div> 
+            <div class ="video-main">
+             <img src ="https://i.ibb.co/NVffPkf/IMG-20241013-WA0014.jpg"class="video-user-img">
+            <h1 class ="video-text">Beautiful video of mountains.</h1>
+         </div>
+         <p class ="video-sub-text">Nature</p> 
+         <span class ="video-sub-text">88k views <i class="fas fa-circle small"></i> streamed 5 min ago</span>  
+        </div>
+        <br>
+     </div>
+</section>
+<script>
+    function tog() {
+        var sidenav = document.getElementsByClassName("side-nav")[0];
+        sidenav.classList.toggle("tog")
+         if (window.innerWidth <= 768) {
+        document.body.classList.toggle("mobile-tog")
+        }
+        else{
+            document.body.classList.toggle("desktop-tog")    
+        }
+    }
+    </script>
+</body>
+</html>
